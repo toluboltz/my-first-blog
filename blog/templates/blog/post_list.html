@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8" />
-        <title>Tolu's Blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Tolu's Blog</a></h1>
-        </header>
+{% extends "blog/base.html" %}
 
-        {% for post in posts %}
-            <article>
-                <time>published: {{ post.published_date }}</time>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.content|linebreaksbr }}</p>
-            </article>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">published: {{ post.published_date }}</time>
+            <h2><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h2>
+            <p>{{ post.content|linebreaksbr|truncatewords:50 }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
