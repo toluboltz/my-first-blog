@@ -68,3 +68,16 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+
+.new-post,
+.draft-list,
+.new-post:hover,
+.draft-list:hover,
+.new-post:visited
+.draft-list:visited {
+    color: #ffffff;
+    float: right;
+    margin-right: 20px;
+    width: 5%;
+    height: 5%;
+}
